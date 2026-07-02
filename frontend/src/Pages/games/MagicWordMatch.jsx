@@ -76,7 +76,7 @@ export default function MagicWordMatch() {
 
   const logGameSession = async (questionNumber, emotion, isCorrect, isFinal = false) => {
     try {
-      await axios.post('${import.meta.env.VITE_BACKEND_URL}/backend/games/log-game-session', {
+      await axios.post('${import.meta.env.VITE_API_URL}', {
         userId: currentUser?._id,
         gameName: 'MagicWordMatch',
         sessionId: sessionId.current,
@@ -95,7 +95,7 @@ export default function MagicWordMatch() {
 
   const handleAnswer = async (selectedOption) => {
     const isCorrect = selectedOption === wordData[currentIndex].correct;
-    const emotion = localStorage.getItem('currentEmotion') || '';
+    const emotion = localStorage.getItem('currentEmotion') || 'neutral';
     const questionNum = currentIndex + 1;
     const isFinal = currentIndex === wordData.length - 1;
 

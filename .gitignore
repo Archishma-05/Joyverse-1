@@ -13,9 +13,9 @@
 **/.env
 
 # Logs
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
+*/npm-debug.log
+*/yarn-debug.log
+*/yarn-error.log
 
 # Package lock files (optional)
 package-lock.json
@@ -26,8 +26,8 @@ yarn.lock
 # ------------------------------
 
 # Python cache
-**/__pycache__/
-**/*.pyc
+**/_pycache_/
+*/.pyc
 
 # Flask-related environment files
 *.env
@@ -40,7 +40,7 @@ flaskbackend/train_faces_mesh.csv
 flaskbackend/test_faces_mesh.csv
 
 # ------------------------------
-# ⚙️ IDEs / OS Files
+# ⚙ IDEs / OS Files
 # ------------------------------
 
 # macOS

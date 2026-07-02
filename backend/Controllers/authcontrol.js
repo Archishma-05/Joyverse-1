@@ -1,13 +1,14 @@
 // Controllers/authcontrol.js
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs"; //password hashing and comparison
+import jwt from "jsonwebtoken"; //generate secure tokens for login sessions 
 import User from "../models/UserModel.js";
 
 export const signup = async (req, res) => {
   try {
     const {
       username,
-      password,      email = "",
+      password,
+      email = "",
       parentName = "",
       parentContact = "",
       childAge = null,

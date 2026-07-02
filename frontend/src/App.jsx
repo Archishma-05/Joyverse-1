@@ -29,7 +29,7 @@ const App = () => {
 
        <Route path="/games" element={<Games/>}/>
 
-        {/* ✅ Emotion-enabled game pages (optional protected if needed) */}
+        {/* Emotion-enabled game pages*/}
         <Route path="/games/word" element={
           <EmotionBackground>
             <MagicWordMatch />

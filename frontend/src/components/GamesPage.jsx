@@ -22,7 +22,7 @@ export default function Games() {
         if (storedUser) {
           const parsedUser = JSON.parse(storedUser);
           
-          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/backend/users/username/${parsedUser.username}`);
+          const response = await fetch( `${import.meta.env.VITE_API_URL}/backend/users/username/${parsedUser.username}`);
           if (response.ok) {
             const userData = await response.json();
             setUser(userData);
@@ -146,13 +146,14 @@ export default function Games() {
                 ? "Suggested Games"
                 : " Games "}
           </motion.h2>
+
           {/* Helper Character */}
           {user?.role !== 'therapist' && (
             <motion.img
               src={helperImg}
               alt="Helper Character"
               className="absolute bottom-[2rem] left-4 w-128 h-auto z-30"
-              animate={{ y: [0, -5, 0] }}
+              animate={{ y: [0, -3, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
           )}

@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import Confetti from 'react-confetti';
+import { useWindowSize } from '@react-hook/window-size';
+
 
 import correctSoundFile from '../../assets/correct.mp3';
 import wrongSoundFile from '../../assets/wrong.mp3';
@@ -30,6 +33,8 @@ export default function AnimalWordGame() {
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState('');
   const [gameOver, setGameOver] = useState(false);
+  const [width, height] = useWindowSize();
+
 
   const correctSound = useRef(new Audio(correctSoundFile));
   const wrongSound = useRef(new Audio(wrongSoundFile));
@@ -95,7 +100,7 @@ export default function AnimalWordGame() {
   const logGameSession = async (questionNumber, isCorrect, isFinal = false) => {
     const emotion = ['happy', 'sad', 'angry', 'surprised', 'neutral','disgust','fear'][Math.floor(Math.random() * 5)];
     try {
-      await axios.post('${import.meta.env.VITE_BACKEND_URL}/backend/games/log-game-session', {
+      await axios.post('${import.meta.env.VITE_API_URL}', {
         userId,
         gameName: 'AnimalWordGame',
         sessionId: sessionId.current,
@@ -251,6 +256,8 @@ export default function AnimalWordGame() {
           </span>
         )}
       </div>
+      {gameOver && <Confetti width={width} height={height} />}
+
     </div>
   );
 }

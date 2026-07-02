@@ -17,6 +17,7 @@
     "@mediapipe/camera_utils": "^0.3.1675466862",
     "@mediapipe/face_mesh": "^0.4.1633559619",
     "@mediapipe/tasks-vision": "^0.10.22-rc.20250304",
+    "@react-hook/window-size": "^3.1.1",
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/forms": "^0.5.10",
     "@vitejs/plugin-react": "^4.5.2",
